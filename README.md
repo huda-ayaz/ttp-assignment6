@@ -1,70 +1,60 @@
-# Getting Started with Create React App
+# DOM Challenges III with ReactJS
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- Due June 20th, 2023 by 10:00:00 AM
+- Points 20
+- Submitting The established protocol for submitting group work (locating the Pinned Google Sheet on the Cohort Slack General Channel, navigating to the appropriate tab, putting down your Group Members’ names, and linking the repository on GitHub that you all collaborated on)
 
-## Available Scripts
+## Goal
 
-In the project directory, you can run:
+This is another exercise to further demonstrate an understanding of HTML, CSS, JS, DOM manipulation, and handling user events with ReactJS. This is also an opportunity to for improving organization in a React application.
 
-### `npm start`
+## Direction
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+You'll be re-doing part of the functionality of the DOM Challenges III (grid/row/column/color) assignment, but with Create-React-App this time around. Instead of directly using the DOM API, you'll be managing state (hint: the currently selected color and the grid), writing methods within the class instead of standalone functions, and passing down bounded-event handlers to be fired off in the children components that have event listeners on them (note: since `this` will be bound in a parent, then any child component that receives the bound function as a passed down prop will be able to impact [perform calculations/operations relevant to the parent] the parent component). The MVP (minimum viable product) features can be achieved with four components: App.jsx, Table.jsx, TableCell.jsx, TableRow.jsx, where App.jsx is a stateful, class component and the other three components are purely presentational components. The MVP features are: a user can add a row, a user can add a column, and a user can select a color to change a single cell via click. As a user, I can add a row, add a column, select a color from a dropdown menu of colors, and click on individual cells to color in the cell. Stretch and optional features will be recreating the entirety (clear the grid, fill the grid, fill uncolored cells, etc) of DOM Challenges III, but in ReactJS. There should be a dedicated and individual feature branch for each function you plan on writing as well as a dedicated and individual feature branch for each component you write out.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+**Use this time to also do two things:**
 
-### `npm test`
+1. Navigate to this extension for Google Chrome and install it: https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en. This shows you the root React components that were rendered on the page, as well as the subcomponents that they ended up rendering. By selecting one of the components in the tree, you can inspect and edit its current props and state in the panel on the right. In the breadcrumbs you can inspect the selected component, the component that created it, the component that created that one, and so on. If you inspect a React element on the page using the regular Elements tab, then switch over to the React tab, that element will be automatically selected in the React tree.
+2. Deploy this to GitHub Pages. Please refer to this link for guidance on this: https://codeburst.io/deploy-react-to-github-pages-to-create-an-amazing-website-42d8b09cd4d
+   (debug as necessary)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## More Direction/Suggestions
 
-### `npm run build`
+- Put all of your components in a directory titled `components`
+- Create an `index.js` file for that `components` directory so that you can have a central location of exporting (it will look something like this, not identically of course) (this is known as a barrel file)
+- The above will allow you to import multiple components from this one file in your App.jsx (or any file that needs a component) in a convenient, semantic way that appears like so (disregard the names of the files and substitute the names of your particular components):
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+  ```
+   import { HeaderView, MainView, FooterView, RoutesView } from "./components"; (index.js is automatically implied and interpreted)
+  ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- App.jsx could maintain the state of the grid as well as the state of the selected color (stateful, class component)
+- App.jsx could have methods (bound event handler functions) on the class which will be passed down to children components via props (the children components, presentational components, will have event listeners that will fire off the bound event handler functions
+- App.jsx could render the dropdown menu as well as the Table Component (presentational component)
+- Table.jsx could be the parent of TableRow.jsx (presentational component)
+- TableRow.jsx could be the parent of TableCell.jsx (presentational component)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**The above are merely suggestions and by no means is a mandatory approach**
 
-### `npm run eject`
+## Assignment
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Complete the following user stories (bold denotes an MVP/mandatory feature, whereas italics denotes a stretch/optional feature):
+As a user, I can:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- [ ] **add rows to the grid**
+- [ ] **add columns to the grid**
+- [ ] remove rows from the grid
+- [ ] remove columns from the grid
+- [ ] **select a color from a dropdown menu of colors**
+- [ ] **click on a single cell, changing its color to the currently selected color**
+- [ ] fill all uncolored cells with the currently selected color
+- [ ] fill all cells with the currently selected color
+- [ ] clear all cells/restore all cells to their original/initial color
+- [ ] click and hold (mouseover) from a single cell (start) to a different cell (end) such that all affected/hovered-over cells from start to end change to the currently selected color
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Grading Criteria
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Code has a comment that notes/documentation on which problem/feature the particular function is attempting to solve
+- All solutions should explicitly fulfill the requirements noted in each problem.
+- **Complete:** Meets all grading criteria above.
+- **Incomplete:** Does not meet all grading criteria above. Needs improvement or missing submission.
