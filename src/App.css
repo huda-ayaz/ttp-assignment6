@@ -36,3 +36,23 @@
     transform: rotate(360deg);
   }
 }
+
+* {
+  background-color: salmon;
+}
+
+div {
+  padding: 20px;
+}
+
+h1 {
+  color: beige;
+}
+
+button {
+  color: beige;
+}
+
+#colors {
+  margin-left: 10px;
+}

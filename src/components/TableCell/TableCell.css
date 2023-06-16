@@ -1,0 +1,8 @@
+td {
+    background-color: beige;
+    padding: 10px;
+    width: 12px;
+    height: 24px;
+    border-style: solid;
+    border-color: black,
+}
