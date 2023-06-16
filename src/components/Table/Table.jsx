@@ -1,4 +1,5 @@
 import React, { Component, ReactPropTypes } from "react";
+import TableRow from "../TableRow/TableRow.jsx";
 
 export default class Table extends Component {
   constructor(props) {
@@ -6,6 +7,10 @@ export default class Table extends Component {
   }
 
   render() {
-    return <h1>This is a test of child component!</h1>;
+    return (
+      <div>
+        <TableRow />
+      </div>
+    );
   }
 }

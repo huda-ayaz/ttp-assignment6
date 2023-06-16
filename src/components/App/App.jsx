@@ -1,7 +1,5 @@
 import React, { Component, ReactPropTypes } from "react";
-import Table from "./Table.jsx";
-import TableCell from "./TableCell.jsx";
-import TableRow from "./TableRow.jsx";
+import Table from "../Table/Table.jsx";
 
 export default class App extends Component {
   constructor(props) {
@@ -10,10 +8,10 @@ export default class App extends Component {
 
   render() {
     return (
-      <h1>
-        This is a Test!
+      <div>
+        <h1>DOM III + ReactJS: GRID</h1>
         <Table />
-      </h1>
+      </div>
     );
   }
 }
