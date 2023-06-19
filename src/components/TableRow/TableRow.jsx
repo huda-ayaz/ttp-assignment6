@@ -4,6 +4,11 @@ import TableCell from "../TableCell/TableCell.jsx";
 export default class TableRow extends Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      row: props.row,
+      
+    }
   }
 
   render() {
