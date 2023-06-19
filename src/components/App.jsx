@@ -4,7 +4,27 @@ import Table from "./Table/Table.jsx";
 export default class App extends Component {
   constructor(props) {
     super(props);
+    grid: [];
   }
+
+  delRow = () => { //deletes a row function
+    this.setState((prevState) => { //updating the state in our component based on our prev. state
+      let newGrid = prevState.grid.slice(); //our new grid is now a copy of our old one
+      newGrid.splice(row.index, 1); //using splice() we can add/remove elements from array 
+      return { grid: newGrid };
+    });
+  }
+
+  delCol = () => { //deletes a column function
+    this.setState((prevState) => { //update the state in our component based on our prev. state
+      let newGrid = prevState.grid.map((row) => {// use map to iterate over each row in the grid
+        let newRow = row.slice(); //create a new copy of the row
+        newRow.splice(col.index, 1); // Remove the column at index col.index
+        return newRow; 
+      });
+      return { grid: newGrid }; //return the updated new grid  w/o the row
+    });
+  };
 
   render() {
     return (
@@ -26,8 +46,27 @@ export default class App extends Component {
             <option value="purple">Purple</option>
           </select>
         </div>
-        <Table />
+          <Table />
+        <div>
+
+        </div>
+        <div>
+        
+
+
+
+        </div>
+
+
+
+
+
       </div>
+    
+
+
+
+
     );
   }
 }
