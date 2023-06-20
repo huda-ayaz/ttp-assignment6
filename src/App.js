@@ -2,21 +2,22 @@ import "./App.css";
 import Table from "./components/Table/Table";
 import React, { useState, useEffect, ReactPropTypes } from "react";
 
-// import { AppFace } from "./components/App.jsx";
-
 function App() {
   const[rows, setRows] = useState(1);
   const[cols, setCols] = useState(1);
   const[color, setColor] = useState("beige");
 
+  // Add rows to the grid
   const addRow = () => {
     setRows(rows+1);
   }
 
+  // Add columns to the grid
   const addCol = () => {
     setCols(cols+1);
   }
 
+  // Select a color from a dropdown menu of colors
   const selectColor = (colors) => {
     setColor(colors.target.value);
     console.log(color);

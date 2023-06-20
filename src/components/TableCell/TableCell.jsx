@@ -7,17 +7,14 @@ const TableCell = ({ colorVal }) => {
 
   const handleColorChange = () => {
     setIsSelected(true);
-    console.log(isSelected);
-    console.log("selected");
     style();
   }
 
+  // Click on a single cell, changing its color to the currently selected color
   const style = () => {
     if (isSelected) {
-      console.log("made it change")
       setColor(colorVal);
     } else {
-      console.log("made it beige")
       setColor("beige");
     }
   }
