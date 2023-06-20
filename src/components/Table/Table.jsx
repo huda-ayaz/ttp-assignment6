@@ -1,36 +1,26 @@
-import React, { Component, ReactPropTypes } from "react";
+import React, { useState, Component, ReactPropTypes } from "react";
+import { useEffect } from "react";
 import TableRow from "../TableRow/TableRow.jsx";
 
-export default class Table extends Component {
-  constructor(props) {
-    super(props);
+const Table = ({ rowNum, colNum }) => {
+  const [rows, setRows] = useState(1);
 
-    this.state = {
-      rowNum: 1,
-      colNum: 1
-    }
+  const repeatRows = () => {
+    const rowsArray = Array.from({ length: rowNum }, (_, index) => index);
+    return rowsArray.map((item) => (
+      <TableRow colNum={colNum}/>
+    ));
+  };
 
-    this.addRow = this.addRow.bind(this);
-    this.addCol = this.addCol.bind(this);
+  useEffect = () => {
+    setRows(rowNum);
   }
 
-  render() {
-    return (
-      <div>
-        <TableRow />
-      </div>
-    );
-  }
-
-  addRow(event) {
-    this.setState({
-      rowNum: this.state.rowNum + 1
-    })
-  }
-
-  addCol(event) {
-    this.setState({
-      colNum: this.state.colNum + 1
-    })
-  }
+  return (
+    <div>
+      {repeatRows()}
+    </div>
+  );
 }
+
+export default Table;
