@@ -1,13 +1,16 @@
-import React, { Component, ReactPropTypes } from "react";
+import React, { Component, ReactPropTypes} from "react";
 import Table from "./Table/Table.jsx";
 
 export default class App extends Component {
   constructor(props) {
     super(props);
-    grid: [];
+    this.state = {
+      grid: []
+    };
   }
 
-  delRow = () => { //deletes a row function
+
+  delRow = (rowIndex) => { //deletes a row function
     this.setState((prevState) => { //updating the state in our component based on our prev. state
       let newGrid = prevState.grid.slice(); //our new grid is now a copy of our old one
       newGrid.splice(row.index, 1); //using splice() we can add/remove elements from array 
@@ -15,7 +18,7 @@ export default class App extends Component {
     });
   }
 
-  delCol = () => { //deletes a column function
+  delCol = (colIndex) => { //deletes a column function
     this.setState((prevState) => { //update the state in our component based on our prev. state
       let newGrid = prevState.grid.map((row) => {// use map to iterate over each row in the grid
         let newRow = row.slice(); //create a new copy of the row
@@ -31,13 +34,13 @@ export default class App extends Component {
       <div>
         <h1>DOM III + ReactJS: GRID</h1>
         <div>
-        <button onclick="addRow()" class="btn-rowAdd">+ Row</button>
-        <button onclick="delRow()" class="btn-rowDel">- Row</button>
-        <button onclick="addCol()" class="btn-colAdd">+ Column</button>
-        <button onclick="delCol()" class="btn-colDel">- Column</button>
-        <button onclick="fillAllUncoloredCells()" class="fillUncolored">Fill All Uncolored Cells</button>
-        <button onclick="fillAllCells()" class="fillAll">Fill ALL Cells</button>
-        <button onclick="clearCells()" class="clear">Clear ALL</button>
+        <button onClick={addRow} className="btn-rowAdd">+ Row</button>
+        <button onClick={() => this.delRow(rowIndex)} className="btn-rowDel">- Row</button>
+        <button onClick={addCol} className="btn-colAdd">+ Column</button>
+        <button onClick={() => this.delCol(colIndex)} className="btn-colDel">- Column</button>
+        <button onClick={fillAllUncoloredCells} className="fillUncolored">Fill All Uncolored Cells</button>
+        <button onClick={fillAllCells} className="fillAll">Fill ALL Cells</button>
+        <button onClick={clearCells} className="clear">Clear ALL</button>
         <select name="colors" id="colors">
             <option value="color">Color</option>
             <option value="red">Red</option>
@@ -50,23 +53,8 @@ export default class App extends Component {
         <div>
 
         </div>
-        <div>
-        
-
-
-
-        </div>
-
-
-
-
-
-      </div>
+     </div>
     
-
-
-
-
     );
-  }
+  };
 }
