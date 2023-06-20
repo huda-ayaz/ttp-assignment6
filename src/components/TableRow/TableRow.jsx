@@ -1,16 +1,26 @@
-import React, { Component, ReactPropTypes } from "react";
+import React, { useState, Component, ReactPropTypes } from "react";
+import { useEffect } from "react";
 import TableCell from "../TableCell/TableCell.jsx";
 
-export default class TableRow extends Component {
-  constructor(props) {
-    super(props);
+const TableRow = ({ colNum }) => {
+  const [cols, setCols] = useState(1);
+
+  const repeatCols = () => {
+    const colsArray = Array.from({ length: colNum }, (_, index) => index);
+    return colsArray.map((item) => (
+      <TableCell/>
+    ));
+  };
+
+  useEffect = () => {
+    setCols(colNum);
   }
 
-  render() {
-    return (
-      <div>
-        <TableCell />
-      </div>
-    );
-  }
+  return (
+    <div>
+      {repeatCols()}
+    </div>
+  );
 }
+
+export default TableRow;
